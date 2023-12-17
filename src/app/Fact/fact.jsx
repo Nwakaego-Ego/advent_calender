@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import "./fact.css";
 
 const Fact = () => {
   const dataSet = [
@@ -89,18 +90,22 @@ const Fact = () => {
   ];
 
   return (
-    <div>
-      {dataSet.map((data) => {
+    <div className="container ">
+      {dataSet.map((data, index) => {
         return (
-          <div key={data.id} className="container">
-            <Image
-              src="/wrap.png"
-              width={150}
-              height={50}
-              alt="wrap"
-              layout="fit"
-              objectFit="cover"
-            />
+          <div key={data.id} className="item">
+            <div className="">
+              <Image
+                src="/wrap.png"
+                width={300}
+                height={200}
+                alt="wrap"
+                layout="fit"
+                objectFit="cover"
+                className="wrap-img"
+              />
+              <span className="mb-10 text-red"> {index}</span>
+            </div>
           </div>
         );
       })}
