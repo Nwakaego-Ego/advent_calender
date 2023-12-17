@@ -5,7 +5,7 @@ import Fact from "../Fact/fact";
 const Dashboard = () => {
   return (
     <div className=" ml-20 ">
-      <div className="flex flex-row">
+      <div className="flex flex-row  ">
         <Image
           src="/xmas.png"
           alt="santa"
@@ -13,6 +13,7 @@ const Dashboard = () => {
           height={150}
           layout="fit"
           objectFit="cover"
+          className="hidden md:block"
         />
         <Fact />
       </div>

@@ -90,10 +90,10 @@ const Fact = () => {
   ];
 
   return (
-    <div className="container ">
+    <div className="container mt-20 lg:mt-[80px]">
       {dataSet.map((data, index) => {
         return (
-          <div key={data.id} className="item">
+          <div key={data.id} className="item ">
             <div className="">
               <Image
                 src="/wrap.png"
@@ -102,9 +102,9 @@ const Fact = () => {
                 alt="wrap"
                 layout="fit"
                 objectFit="cover"
-                className="wrap-img"
+                className="wrap-img "
               />
-              <span className="mb-10 text-red"> {index}</span>
+              <span className="index text-white"> {index + 1}</span>
             </div>
           </div>
         );
