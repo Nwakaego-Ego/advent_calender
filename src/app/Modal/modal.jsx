@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 
-const ReactModal = ({ closeModal, openModal, modalIsOpen }) => {
+const ReactModal = ({ closeModal, modalIsOpen }) => {
   const customStyles = {
     content: {
       top: "50%",
@@ -10,6 +10,8 @@ const ReactModal = ({ closeModal, openModal, modalIsOpen }) => {
       bottom: "auto",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      width: "500px",
+      height: "300px",
     },
   };
 
@@ -17,10 +19,8 @@ const ReactModal = ({ closeModal, openModal, modalIsOpen }) => {
     <div>
       <Modal
         isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
       >
         <div>Modal</div>
       </Modal>

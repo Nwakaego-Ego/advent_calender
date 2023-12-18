@@ -2,16 +2,18 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Fact from "../Fact/fact";
+import { dataset } from "../data";
+import ReactModal from "../Modal/modal";
 
 const Dashboard = () => {
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
-    setIsOpen(true);
+    setModalIsOpen(true);
   };
 
   const closeModal = () => {
-    setIsOpen(false);
+    setModalIsOpen(false);
   };
 
   return (
@@ -26,11 +28,8 @@ const Dashboard = () => {
           objectFit="cover"
           className="hidden md:block"
         />
-        <Fact
-          openModal={openModal}
-          closeModal={closeModal}
-          modalIsOpen={modalIsOpen}
-        />
+        <Fact openModal={openModal} dataset={dataset} />
+        <ReactModal closeModal={closeModal} modalIsOpen={modalIsOpen} />
       </div>
     </div>
   );
