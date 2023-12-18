@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import "./fact.css";
 
-const Fact = () => {
+const Fact = ({ openModal }) => {
   const dataSet = [
     {
       image: "./santa.png",
@@ -89,23 +89,32 @@ const Fact = () => {
     },
   ];
 
+  //    const [modalIsOpen, setIsOpen] = useState(false);
+
+  //    const openModal = () => {
+  //      setIsOpen(true);
+  //    };
+
+  //    const closeModal = () => {
+  //      setIsOpen(false);
+  //    };
+
   return (
     <div className="container mt-20 lg:mt-[80px]">
       {dataSet.map((data, index) => {
         return (
           <div key={data.id} className="item ">
-            <div className="">
-              <Image
-                src="/wrap.png"
-                width={300}
-                height={200}
-                alt="wrap"
-                layout="fit"
-                objectFit="cover"
-                className="wrap-img "
-              />
-              <span className="index text-white"> {index + 1}</span>
-            </div>
+            <Image
+              src="/wrap.png"
+              width={300}
+              height={200}
+              alt="wrap"
+              layout="fit"
+              objectFit="cover"
+              className="wrap-img "
+              onClick={openModal}
+            />
+            <span className="index text-white"> {index + 1}</span>
           </div>
         );
       })}
