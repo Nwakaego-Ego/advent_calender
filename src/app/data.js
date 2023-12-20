@@ -1,6 +1,6 @@
 export const dataSet = [
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:
@@ -10,7 +10,7 @@ export const dataSet = [
     trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:
@@ -20,7 +20,7 @@ export const dataSet = [
     trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:
@@ -30,7 +30,7 @@ export const dataSet = [
     trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:
@@ -40,7 +40,7 @@ export const dataSet = [
     trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:
@@ -50,7 +50,7 @@ export const dataSet = [
     trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:
@@ -60,7 +60,7 @@ export const dataSet = [
     trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:
@@ -70,7 +70,7 @@ export const dataSet = [
     trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
-    image: "./santa.png",
+    image: "/santa.png",
   },
   {
     quote:

@@ -4,6 +4,10 @@ import DataSet from "../data";
 import "./fact.css";
 
 const Fact = ({ openModal, dataSet }) => {
+  //   if (!dataSet) {
+  //     return <p>Loading...</p>; // or render a loading indicator
+  //   }
+
   return (
     <div className="container mt-20 lg:mt-[80px]" onClick={openModal}>
       {dataSet.map((data, index) => {
