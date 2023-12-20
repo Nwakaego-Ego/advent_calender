@@ -26,6 +26,7 @@
 //           return (
 //             <div key={id}>
 //               {data.image && <img src={data.image} alt="santa" />}
+
 //             </div>
 //           );
 //         })}
@@ -36,10 +37,11 @@
 
 // export default ReactModal;
 
+import { dataSet } from "../data";
 import React from "react";
 import Modal from "react-modal";
 
-const ReactModal = ({ closeModal, modalIsOpen, selectedData }) => {
+const ReactModal = ({ closeModal, modalIsOpen, dataSet, selectedData }) => {
   const customStyles = {
     content: {
       top: "50%",
@@ -60,8 +62,8 @@ const ReactModal = ({ closeModal, modalIsOpen, selectedData }) => {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        {selectedData !== null && (
-          <div>
+        {selectedData !== null && dataSet[selectedData] && (
+          <div key={selectedData}>
             {dataSet[selectedData].image && (
               <img src={dataSet[selectedData].image} alt="santa" />
             )}
