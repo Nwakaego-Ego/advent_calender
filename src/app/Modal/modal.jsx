@@ -1,7 +1,8 @@
 // import React from "react";
 // import Modal from "react-modal";
+// import { dataSet } from "../data";
 
-// const ReactModal = ({ closeModal, modalIsOpen, dataSet, selectedData }) => {
+// const ReactModal = ({ closeModal, modalIsOpen, dataSet, selected }) => {
 //   const customStyles = {
 //     content: {
 //       top: "50%",
@@ -22,14 +23,15 @@
 //         onRequestClose={closeModal}
 //         style={customStyles}
 //       >
-//         {dataSet.map((data, id) => {
-//           return (
-//             <div key={id}>
-//               {data.image && <img src={data.image} alt="santa" />}
-
-//             </div>
-//           );
-//         })}
+//         {selected !== null && dataSet[selected] && (
+//           <div key={selected}>
+//             {dataSet[selected].image && (
+//               <img src={dataSet[selected].image} alt="santa" />
+//             )}
+//             {dataSet[selected].quote && <p>{dataSet[selected].quote}</p>}
+//             {dataSet[selected].trivia && <p>{dataSet[selected].trivia}</p>}
+//           </div>
+//         )}
 //       </Modal>
 //     </div>
 //   );
@@ -37,11 +39,11 @@
 
 // export default ReactModal;
 
-import { dataSet } from "../data";
-import React from "react";
+import React, { useEffect } from "react";
 import Modal from "react-modal";
+import { dataSet } from "../data";
 
-const ReactModal = ({ closeModal, modalIsOpen, dataSet, selectedData }) => {
+const ReactModal = ({ closeModal, modalIsOpen, dataSet, picked }) => {
   const customStyles = {
     content: {
       top: "50%",
@@ -55,6 +57,13 @@ const ReactModal = ({ closeModal, modalIsOpen, dataSet, selectedData }) => {
     },
   };
 
+  useEffect(() => {
+    // Call the picked function when the modal opens
+    if (modalIsOpen) {
+      picked(null); // Set to null initially or pass an initial index if needed
+    }
+  }, [modalIsOpen, picked]);
+
   return (
     <div>
       <Modal
@@ -62,17 +71,13 @@ const ReactModal = ({ closeModal, modalIsOpen, dataSet, selectedData }) => {
         onRequestClose={closeModal}
         style={customStyles}
       >
-        {selectedData !== null && dataSet[selectedData] && (
-          <div key={selectedData}>
-            {dataSet[selectedData].image && (
-              <img src={dataSet[selectedData].image} alt="santa" />
+        {picked !== null && dataSet[picked] && (
+          <div key={picked}>
+            {dataSet[picked].image && (
+              <img src={dataSet[picked].image} alt="santa" />
             )}
-            {dataSet[selectedData].quote && (
-              <p>{dataSet[selectedData].quote}</p>
-            )}
-            {dataSet[selectedData].trivia && (
-              <p>{dataSet[selectedData].trivia}</p>
-            )}
+            {dataSet[picked].quote && <p>{dataSet[picked].quote}</p>}
+            {dataSet[picked].trivia && <p>{dataSet[picked].trivia}</p>}
           </div>
         )}
       </Modal>

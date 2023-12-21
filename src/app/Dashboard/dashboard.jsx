@@ -9,9 +9,12 @@ const Dashboard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
 
-  const openModal = (index) => {
-    setModalIsOpen(true);
+  const picked = (index) => {
     setSelectedData(index);
+  };
+
+  const openModal = () => {
+    setModalIsOpen(true);
   };
 
   const closeModal = () => {
@@ -35,7 +38,8 @@ const Dashboard = () => {
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
           dataSet={dataSet}
-          selectedData={selectedData}
+          // selected={(index) => selected(index)}
+          picked={selectedData}
         />
       </div>
     </div>
