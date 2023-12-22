@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Fact from "../Fact/fact";
 import { dataSet } from "../data";
@@ -8,18 +8,31 @@ import ReactModal from "../Modal/modal";
 const Dashboard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
-  const picked = (index) => {
-    setSelectedData(index);
-  };
+  // const openModal = (index) => {
+  //   setSelectedData(dataSet[index]);
+  //   setSelectedIndex(index);
+  //   setModalIsOpen(true);
+  //   console.log(selectedData);
+  // };
 
-  const openModal = () => {
+  const openModal = (id) => {
+    const foundData = dataSet.find((item) => item.id === id);
+    setSelectedData(foundData);
     setModalIsOpen(true);
+    console.log(selectedData);
   };
 
   const closeModal = () => {
     setModalIsOpen(false);
   };
+
+  useEffect(() => {
+    console.log(selectedData);
+  }, [selectedData]);
+
+  console.log(dataSet);
 
   return (
     <div className=" ml-20 ">
@@ -33,13 +46,16 @@ const Dashboard = () => {
           objectFit="cover"
           className="hidden md:block"
         />
-        <Fact openModal={openModal} dataSet={dataSet} />
+        <Fact
+          openModal={openModal}
+          dataSet={dataSet}
+          selectedIndex={selectedIndex}
+        />
         <ReactModal
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
           dataSet={dataSet}
-          // selected={(index) => selected(index)}
-          picked={selectedData}
+          selectedData={selectedData}
         />
       </div>
     </div>

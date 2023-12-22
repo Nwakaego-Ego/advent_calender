@@ -3,16 +3,20 @@ import Image from "next/image";
 import DataSet from "../data";
 import "./fact.css";
 
-const Fact = ({ openModal, dataSet }) => {
+const Fact = ({ openModal, dataSet, selectedIndex }) => {
   //   if (!dataSet) {
   //     return <p>Loading...</p>; // or render a loading indicator
   //   }
 
   return (
-    <div className="container mt-20 lg:mt-[80px]" onClick={openModal}>
+    <div className="container mt-20 lg:mt-[80px]">
       {dataSet.map((data, index) => {
         return (
-          <div key={data.id} className="item ">
+          <div
+            key={data.id}
+            className="item"
+            onClick={() => openModal(data.id)}
+          >
             <Image
               src="/wrap.png"
               width={300}
