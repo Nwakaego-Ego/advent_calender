@@ -1,3 +1,19 @@
+import axios from "axios";
+
+export const links = () => {
+  const [quote, setQuote] = useState(null);
+
+  const fetchQuote = async () => {
+    try {
+      const response = await axios.get("https://api.quotable.io/random");
+      setQuote(response?.data);
+      console.log(response.data);
+    } catch (error) {
+      setError("Error fetching quote");
+    }
+  };
+};
+
 export const dataSet = [
   {
     id: 1,
@@ -5,8 +21,7 @@ export const dataSet = [
   },
   {
     id: 2,
-    quote:
-      "“And so I'm offering this simple phrase to kids from one to 92. Although it's been said many times, many ways, merry Christmas to you.” — Robert Wells, “The Christmas Song”",
+    quote: fetchQuote(),
   },
   {
     id: 3,
