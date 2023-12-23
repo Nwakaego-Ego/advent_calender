@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useState } from "react";
 
 export const links = () => {
   const [quote, setQuote] = useState(null);
@@ -12,7 +13,12 @@ export const links = () => {
       setError("Error fetching quote");
     }
   };
+  return {
+    fetchQuote,
+  };
 };
+
+const { fetchQuote } = links();
 
 export const dataSet = [
   {
