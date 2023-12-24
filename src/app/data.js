@@ -1,24 +1,4 @@
-import axios from "axios";
-import { useState } from "react";
-
-export const links = () => {
-  const [quote, setQuote] = useState(null);
-
-  const fetchQuote = async () => {
-    try {
-      const response = await axios.get("https://api.quotable.io/random");
-      setQuote(response?.data);
-      console.log(response.data);
-    } catch (error) {
-      setError("Error fetching quote");
-    }
-  };
-  return {
-    fetchQuote,
-  };
-};
-
-const { fetchQuote } = links();
+import useQuote from "./Quote/quote";
 
 export const dataSet = [
   {
@@ -27,7 +7,7 @@ export const dataSet = [
   },
   {
     id: 2,
-    quote: fetchQuote(),
+    quote: useQuote().quote,
   },
   {
     id: 3,
