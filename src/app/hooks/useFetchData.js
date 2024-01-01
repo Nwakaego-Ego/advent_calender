@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const useFetchData = () => {
-  const [data, setData] = useState("");
+  const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
