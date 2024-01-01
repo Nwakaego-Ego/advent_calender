@@ -1,4 +1,8 @@
-import useQuote from "./Quote/quote";
+import useFetchData from "./hooks/useFetchData";
+
+const apiUrl = "https://api.quotable.io/random";
+const { data, fetchQuote } = useFetchData(apiUrl);
+console.log(fetchQuote);
 
 export const dataSet = [
   {
@@ -7,7 +11,7 @@ export const dataSet = [
   },
   {
     id: 2,
-    quote: useQuote().quote,
+    quote: data,
   },
   {
     id: 3,
