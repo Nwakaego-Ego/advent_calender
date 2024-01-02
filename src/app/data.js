@@ -1,9 +1,3 @@
-import useFetchData from "./hooks/useFetchData";
-
-const apiUrl = "https://api.quotable.io/random";
-const { data, fetchQuote } = useFetchData(apiUrl);
-console.log(fetchQuote);
-
 export const dataSet = [
   {
     id: 1,
@@ -11,7 +5,8 @@ export const dataSet = [
   },
   {
     id: 2,
-    quote: data,
+    quote:
+      "“And so I'm offering this simple phrase to kids from one to 92. Although it's been said many times, many ways, merry Christmas to you.” — Robert Wells, “The Christmas Song”",
   },
   {
     id: 3,

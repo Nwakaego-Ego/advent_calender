@@ -4,24 +4,21 @@ import Image from "next/image";
 import Fact from "../Fact/fact";
 import { dataSet } from "../data";
 import ReactModal from "../Modal/modal";
+import useFetchData from "../hooks/useFetchData";
 
 const Dashboard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  // const openModal = (index) => {
-  //   setSelectedData(dataSet[index]);
-  //   setSelectedIndex(index);
-  //   setModalIsOpen(true);
-  //   console.log(selectedData);
-  // };
+  const { data, fetchData } = useFetchData("https://api.quotable.io/random");
+  console.log(data);
 
   const openModal = (id) => {
     const foundData = dataSet.find((item) => item.id === id);
     setSelectedData(foundData);
     setModalIsOpen(true);
-    console.log(selectedData);
+    // console.log(selectedData);
   };
 
   const closeModal = () => {
@@ -29,10 +26,10 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    console.log(selectedData);
+    // console.log(selectedData);
   }, [selectedData]);
 
-  console.log(dataSet);
+  // console.log(dataSet);
 
   return (
     <div className=" ml-20 ">
@@ -50,12 +47,14 @@ const Dashboard = () => {
           openModal={openModal}
           dataSet={dataSet}
           selectedIndex={selectedIndex}
+          fetchData={fetchData}
         />
         <ReactModal
           closeModal={closeModal}
           modalIsOpen={modalIsOpen}
           dataSet={dataSet}
           selectedData={selectedData}
+          quote={data?.content}
         />
       </div>
     </div>

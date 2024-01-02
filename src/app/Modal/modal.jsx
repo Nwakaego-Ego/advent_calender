@@ -1,7 +1,13 @@
 import React from "react";
 import Modal from "react-modal";
 
-const ReactModal = ({ closeModal, modalIsOpen, dataSet, selectedData }) => {
+const ReactModal = ({
+  closeModal,
+  modalIsOpen,
+  dataSet,
+  selectedData,
+  quote = "",
+}) => {
   const customStyles = {
     content: {
       top: "50%",
@@ -24,7 +30,7 @@ const ReactModal = ({ closeModal, modalIsOpen, dataSet, selectedData }) => {
       >
         <div>
           {selectedData && <img src={selectedData.image} />}
-          {selectedData && <p>{selectedData.quote}</p>}
+          {selectedData && <p>{quote}</p>}
           {selectedData && <p>{selectedData.trivia}</p>}
         </div>
       </Modal>

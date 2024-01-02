@@ -2,28 +2,25 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-const useFetchData = () => {
+const useFetchData = (url) => {
   const [data, setData] = useState();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-        const response = await axios.get("https://api.quotable.io/random");
-        setData(response?.data);
-      } catch (error) {
-        setError(error);
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(url);
+      setData(response?.data);
+    } catch (error) {
+      setError(error);
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  return { quote, error, loading };
+  return { data, error, loading, fetchData };
 };
 
 export default useFetchData;
