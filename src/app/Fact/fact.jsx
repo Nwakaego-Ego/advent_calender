@@ -3,7 +3,14 @@ import Image from "next/image";
 import DataSet from "../data";
 import "./fact.css";
 
-const Fact = ({ openModal, dataSet, selectedIndex, fetchData }) => {
+const Fact = ({
+  openModal,
+  dataSet,
+  selectedIndex,
+  fetchData,
+  fetchJoke,
+  fetchRecipe,
+}) => {
   return (
     <div className="container mt-20 lg:mt-[80px]">
       {dataSet.map((data, index) => {
@@ -14,6 +21,8 @@ const Fact = ({ openModal, dataSet, selectedIndex, fetchData }) => {
             onClick={() => {
               openModal(data.id);
               fetchData();
+              fetchJoke();
+              fetchRecipe();
             }}
           >
             <Image

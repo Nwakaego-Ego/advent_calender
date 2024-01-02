@@ -7,6 +7,8 @@ const ReactModal = ({
   dataSet,
   selectedData,
   quote = "",
+  joke = [],
+  recipe,
 }) => {
   const customStyles = {
     content: {
@@ -30,8 +32,14 @@ const ReactModal = ({
       >
         <div>
           {selectedData && <img src={selectedData.image} />}
-          {selectedData && <p>{quote}</p>}
-          {selectedData && <p>{selectedData.trivia}</p>}
+          {(selectedData?.id === 2 ||
+            selectedData?.id === 8 ||
+            selectedData?.id === 11 ||
+            selectedData?.id === 14 ||
+            selectedData?.id === 17 ||
+            selectedData?.id === 20) && <p>{quote}</p>}
+          {selectedData?.id === 3 && <p>{joke[0]?.title}</p>}
+          {selectedData?.id === 4 && <p>{recipe}</p>}
         </div>
       </Modal>
     </div>

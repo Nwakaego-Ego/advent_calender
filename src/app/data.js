@@ -10,11 +10,11 @@ export const dataSet = [
   },
   {
     id: 3,
-    trivia: "“What do Swedish children leave for Santa Claus Coffee.”",
+    joke: "“What do Swedish children leave for Santa Claus Coffee.”",
   },
   {
     id: 4,
-    image: "/santa.png",
+    recipe: "/santa.png",
   },
   {
     id: 5,

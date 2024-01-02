@@ -12,13 +12,19 @@ const Dashboard = () => {
   const [selectedIndex, setSelectedIndex] = useState(null);
 
   const { data, fetchData } = useFetchData("https://api.quotable.io/random");
+  const { data: joke, fetchData: fetchJoke } = useFetchData(
+    "https://official-joke-api.appspot.com/jokes/christmas/random"
+  );
+  const { data: recipe, fetchData: fetchRecipe } = useFetchData(
+    " https://opentdb.com/api.php?amount=10&category=11&type=multiple"
+  );
   console.log(data);
+  console.log(recipe);
 
   const openModal = (id) => {
     const foundData = dataSet.find((item) => item.id === id);
     setSelectedData(foundData);
     setModalIsOpen(true);
-    // console.log(selectedData);
   };
 
   const closeModal = () => {
@@ -48,6 +54,8 @@ const Dashboard = () => {
           dataSet={dataSet}
           selectedIndex={selectedIndex}
           fetchData={fetchData}
+          fetchJoke={fetchJoke}
+          fetchRecipe={fetchRecipe}
         />
         <ReactModal
           closeModal={closeModal}
@@ -55,6 +63,8 @@ const Dashboard = () => {
           dataSet={dataSet}
           selectedData={selectedData}
           quote={data?.content}
+          joke={joke}
+          recipe={recipe?.results?.question}
         />
       </div>
     </div>
