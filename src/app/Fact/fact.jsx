@@ -8,8 +8,8 @@ const Fact = ({
   dataSet,
   selectedIndex,
   fetchData,
-  fetchJoke,
-  fetchRecipe,
+  fetchTrivial,
+  fetchQuestion,
 }) => {
   return (
     <div className="container mt-20 lg:mt-[80px]">
@@ -21,8 +21,8 @@ const Fact = ({
             onClick={() => {
               openModal(data.id);
               fetchData();
-              fetchJoke();
-              fetchRecipe();
+              fetchTrivial();
+              fetchQuestion();
             }}
           >
             <Image

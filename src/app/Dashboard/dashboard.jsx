@@ -11,15 +11,22 @@ const Dashboard = () => {
   const [selectedData, setSelectedData] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
 
-  const { data, fetchData } = useFetchData("https://api.quotable.io/random");
-  const { data: joke, fetchData: fetchJoke } = useFetchData(
-    "https://official-joke-api.appspot.com/jokes/christmas/random"
+  const { data, fetchData, loading } = useFetchData(
+    "https://api.quotable.io/random"
   );
-  const { data: recipe, fetchData: fetchRecipe } = useFetchData(
+  const { data: trivial, fetchData: fetchTrivial } = useFetchData(
+    "https://v2.jokeapi.dev/joke/Christmas"
+  );
+  const { data: question, fetchData: fetchQuestion } = useFetchData(
     " https://opentdb.com/api.php?amount=10&category=11&type=multiple"
   );
-  console.log(data);
-  console.log(recipe);
+  console.log(trivial ? trivial : "the array is empty");
+
+  // if (question && question.results && question.results.length > 0) {
+  //   console.log(question.results[0].question);
+  // } else {
+  //   console.log("question data is not available yet.");
+  // }
 
   const openModal = (id) => {
     const foundData = dataSet.find((item) => item.id === id);
@@ -34,8 +41,6 @@ const Dashboard = () => {
   useEffect(() => {
     // console.log(selectedData);
   }, [selectedData]);
-
-  // console.log(dataSet);
 
   return (
     <div className=" ml-20 ">
@@ -54,8 +59,8 @@ const Dashboard = () => {
           dataSet={dataSet}
           selectedIndex={selectedIndex}
           fetchData={fetchData}
-          fetchJoke={fetchJoke}
-          fetchRecipe={fetchRecipe}
+          fetchTrivial={fetchTrivial}
+          fetchQuestion={fetchQuestion}
         />
         <ReactModal
           closeModal={closeModal}
@@ -63,8 +68,10 @@ const Dashboard = () => {
           dataSet={dataSet}
           selectedData={selectedData}
           quote={data?.content}
-          joke={joke}
-          recipe={recipe?.results?.question}
+          // joke={joke}
+          trivial={trivial?.setup}
+          question={question?.results ? question.results[0].question : null}
+          loading={loading}
         />
       </div>
     </div>
