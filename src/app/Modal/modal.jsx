@@ -34,7 +34,7 @@ const ReactModal = ({
       >
         <div>
           {loading ? (
-            "Loading"
+            "Loading...."
           ) : (
             <>
               {selectedData && <img src={selectedData.image} />}
