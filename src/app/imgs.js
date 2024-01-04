@@ -1,11 +1,11 @@
 export const imgs = [
   {
     id: 1,
-    image: "/santa.png",
+    image: "/grinch-scooby-1.jpg",
   },
   {
     id: 2,
-    image: "/grinch-scooby-1.jpg",
+    image: "/santa.png",
   },
   {
     id: 3,

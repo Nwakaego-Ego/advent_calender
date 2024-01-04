@@ -12,7 +12,7 @@ const ReactModal = ({
   trivial,
   question = [],
   loading,
-  // imgs,
+  Imgs,
 }) => {
   const customStyles = {
     content: {
@@ -39,7 +39,14 @@ const ReactModal = ({
             <Spinner />
           ) : (
             <>
-              {selectedData && <img src={selectedData.image} />}
+              {/* {selectedData && <img src={selectedData.image} />} */}
+              {/* {selectedData && <img src={Imgs} alt="Selected Image" />} */}
+              {selectedData && (
+                <img
+                  src={Imgs.find((img) => img.id === selectedData.id)?.image}
+                  alt="Selected Image"
+                />
+              )}
               {(selectedData?.id === 2 ||
                 selectedData?.id === 8 ||
                 selectedData?.id === 11 ||

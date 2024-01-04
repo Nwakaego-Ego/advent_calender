@@ -5,12 +5,14 @@ import Fact from "../Fact/fact";
 import { dataSet } from "../data";
 import ReactModal from "../Modal/modal";
 import useFetchData from "../hooks/useFetchData";
-// import Imgs from "../imgs";
+import { imgs } from "../imgs";
 
 const Dashboard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedData, setSelectedData] = useState(null);
   const [selectedIndex, setSelectedIndex] = useState(null);
+
+  console.log(imgs ? imgs : "the image is empty");
 
   const { data, fetchData, loading } = useFetchData(
     "https://api.quotable.io/random"
@@ -72,7 +74,7 @@ const Dashboard = () => {
           trivial={trivial?.setup}
           question={question?.results ? question.results[0].question : null}
           loading={loading}
-          // Imgs={Imgs}
+          Imgs={imgs}
           // Spinner={Spinner}
         />
       </div>
