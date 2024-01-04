@@ -12,6 +12,7 @@ const ReactModal = ({
   trivial,
   question = [],
   loading,
+  // imgs,
 }) => {
   const customStyles = {
     content: {

@@ -5,7 +5,7 @@ import Fact from "../Fact/fact";
 import { dataSet } from "../data";
 import ReactModal from "../Modal/modal";
 import useFetchData from "../hooks/useFetchData";
-import Spinner from "../loading/page";
+// import Imgs from "../imgs";
 
 const Dashboard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -72,6 +72,7 @@ const Dashboard = () => {
           trivial={trivial?.setup}
           question={question?.results ? question.results[0].question : null}
           loading={loading}
+          // Imgs={Imgs}
           // Spinner={Spinner}
         />
       </div>
