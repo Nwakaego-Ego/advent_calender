@@ -5,6 +5,7 @@ import Fact from "../Fact/fact";
 import { dataSet } from "../data";
 import ReactModal from "../Modal/modal";
 import useFetchData from "../hooks/useFetchData";
+import Spinner from "../loading/page";
 
 const Dashboard = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -68,10 +69,10 @@ const Dashboard = () => {
           dataSet={dataSet}
           selectedData={selectedData}
           quote={data?.content}
-          // joke={joke}
           trivial={trivial?.setup}
           question={question?.results ? question.results[0].question : null}
           loading={loading}
+          // Spinner={Spinner}
         />
       </div>
     </div>

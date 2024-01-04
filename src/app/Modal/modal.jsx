@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import Spinner from "../loading/page";
 
 const ReactModal = ({
   closeModal,
@@ -34,7 +35,7 @@ const ReactModal = ({
       >
         <div>
           {loading ? (
-            "Loading...."
+            <Spinner />
           ) : (
             <>
               {selectedData && <img src={selectedData.image} />}

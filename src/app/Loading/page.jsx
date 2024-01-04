@@ -1,10 +1,10 @@
 import "./loading.css";
 
-const Loading = () => {
+const Spinner = () => {
   return (
     <>
-      <div className="spinner">
-        Loading
+      <div className="spinner ">
+        <span className="loading">Loading</span>
         <div className="spinner-circle spinner-red"></div>
         <div className="spinner-circle spinner-blue"></div>
         <div className="spinner-circle spinner-yellow"></div>
@@ -13,4 +13,4 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export default Spinner;
