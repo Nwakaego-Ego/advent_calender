@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
 import Spinner from "../loading/page";
 
@@ -40,7 +40,12 @@ const ReactModal = ({
     }
   };
 
-  console.log(selectImage);
+  console.log(selectedImg);
+
+  useEffect(() => {
+    // Call selectedImg when selectedData changes
+    selectedImg();
+  }, [selectedData, Imgs]);
 
   const customStyles = {
     content: {
@@ -75,7 +80,7 @@ const ReactModal = ({
               {selectedData && (
                 <img
                   // src={Imgs.find((img) => img.id === selectedData.id)?.image}
-                  src={selectedData?.selectImage}
+                  src={selectedImg}
                   alt="Selected Image"
                   className="w-[300px] h-[250px] modal-Img"
                 />
