@@ -40,12 +40,12 @@ const ReactModal = ({
     }
   };
 
-  console.log(selectedImg);
+  console.log(selectImage);
 
-  useEffect(() => {
-    // Call selectedImg when selectedData changes
-    selectedImg();
-  }, [selectedData, Imgs]);
+  // useEffect(() => {
+  //   // Call selectedImg when selectedData changes
+  //   selectedImg();
+  // }, [selectedData, Imgs]);
 
   const customStyles = {
     content: {
@@ -76,21 +76,18 @@ const ReactModal = ({
             <>
               {/* {selectedData && <img src={selectedData.image} />} */}
               {/* {selectedData && <img src={Imgs} alt="Selected Image" />} */}
-
               {selectedData && (
                 <img
                   // src={Imgs.find((img) => img.id === selectedData.id)?.image}
-                  src={selectedImg}
+                  src={selectImage}
                   alt="Selected Image"
                   className="w-[300px] h-[250px] modal-Img"
                 />
               )}
-              {(selectedData?.id === 2 ||
-                selectedData?.id === 8 ||
-                selectedData?.id === 11 ||
-                selectedData?.id === 14 ||
-                selectedData?.id === 17 ||
-                selectedData?.id === 20) && <p>{quote}</p>}
+
+              {[2, 8, 11, 14, 17, 20].includes(selectedData?.id) && (
+                <p>{quote}</p>
+              )}
               {/* {selectedData?.id === 3 && <p>{joke[0]?.title}</p>} */}
               {selectedData?.id === 3 && <p>{trivial}</p>}
               {selectedData?.id === 4 && <p>{question}</p>}
