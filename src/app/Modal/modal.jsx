@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Modal from "react-modal";
-import Spinner from "../loading/page";
+import Spinner from "../../component/loading/loading";
 
 const ReactModal = ({
   closeModal,
@@ -32,11 +32,11 @@ const ReactModal = ({
 
       const randomImage = matchingImages[randomIndex];
 
-      const selectedImage = randomImage?.image || "default_image_url";
+      const selectedImage = randomImage?.image || " ";
 
       setSelectImage(selectedImage);
     } else {
-      setSelectImage("default_image_url");
+      setSelectImage(" ");
     }
   };
 
@@ -61,6 +61,8 @@ const ReactModal = ({
   };
 
   // const santa = Imgs.find((img) => img.id === selectedData.id)?.image;
+  const randomIndex = Math.floor(Math.random() * Imgs.length);
+  let randomImage = Imgs[randomIndex].image;
 
   return (
     <div>
@@ -79,7 +81,7 @@ const ReactModal = ({
               {selectedData && (
                 <img
                   // src={Imgs.find((img) => img.id === selectedData.id)?.image}
-                  src={selectImage}
+                  src={randomImage}
                   alt="Selected Image"
                   className="w-[300px] h-[250px] modal-Img"
                 />
