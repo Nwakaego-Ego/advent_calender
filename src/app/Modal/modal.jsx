@@ -14,39 +14,6 @@ const ReactModal = ({
   loading,
   Imgs,
 }) => {
-  const [selectImage, setSelectImage] = useState();
-
-  // const selectedImg = () => {
-  //   const matchingImage = Imgs.find((img) => img.id === selectedData.id);
-  //   const selectedImage = matchingImage?.image;
-  //   const randomImage = Math.random(selectImage)
-
-  //   setSelectImage(randomImage);
-  // };
-
-  const selectedImg = () => {
-    const matchingImages = Imgs.filter((img) => img.id === selectedData.id);
-
-    if (matchingImages.length > 0) {
-      const randomIndex = Math.floor(Math.random() * matchingImages.length);
-
-      const randomImage = matchingImages[randomIndex];
-
-      const selectedImage = randomImage?.image || " ";
-
-      setSelectImage(selectedImage);
-    } else {
-      setSelectImage(" ");
-    }
-  };
-
-  console.log(selectImage);
-
-  // useEffect(() => {
-  //   // Call selectedImg when selectedData changes
-  //   selectedImg();
-  // }, [selectedData, Imgs]);
-
   const customStyles = {
     content: {
       top: "50%",
@@ -60,7 +27,6 @@ const ReactModal = ({
     },
   };
 
-  // const santa = Imgs.find((img) => img.id === selectedData.id)?.image;
   const randomIndex = Math.floor(Math.random() * Imgs.length);
   let randomImage = Imgs[randomIndex].image;
 
@@ -78,7 +44,7 @@ const ReactModal = ({
             <>
               {/* {selectedData && <img src={selectedData.image} />} */}
               {/* {selectedData && <img src={Imgs} alt="Selected Image" />} */}
-              {selectedData && (
+              {[1, 5, 9, 13, 17, 21, 25].includes(selectedData?.id) && (
                 <img
                   // src={Imgs.find((img) => img.id === selectedData.id)?.image}
                   src={randomImage}
@@ -87,12 +53,16 @@ const ReactModal = ({
                 />
               )}
 
-              {[2, 8, 11, 14, 17, 20].includes(selectedData?.id) && (
+              {[3, 7, 11, 15, 19, 23].includes(selectedData?.id) && (
                 <p>{quote}</p>
               )}
               {/* {selectedData?.id === 3 && <p>{joke[0]?.title}</p>} */}
-              {selectedData?.id === 3 && <p>{trivial}</p>}
-              {selectedData?.id === 4 && <p>{question}</p>}
+              {[2, 6, 10, 14, 18, 22].includes(selectedData?.id) && (
+                <p>{trivial}</p>
+              )}
+              {[4, 8, 12, 16, 20, 24].includes(selectedData?.id) && (
+                <p>{question}</p>
+              )}
             </>
           )}
         </div>
